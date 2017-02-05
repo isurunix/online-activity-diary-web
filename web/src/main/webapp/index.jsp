@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
@@ -28,14 +29,14 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="index.html">Online Activity Diary</a>
+        <a class="navbar-brand" href="index.jsp">Online Activity Diary</a>
       </div>
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="profile-settings.html">Settings</a></li>
-          <li><a href="sign-in.html">Sign out</a></li>
+          <li class="active"><a href="index.jsp">Home</a></li>
+          <li><a href="profile-settings.jsp">Settings</a></li>
+          <li><a href="sign-in.jsp">Sign out</a></li>
         </ul>
       </div>
     </div>

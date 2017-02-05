@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
@@ -28,14 +29,14 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="index.html">Online Activity Diary</a>
+        <a class="navbar-brand" href="index.jsp">Online Activity Diary</a>
       </div>
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="profile-settings.html">Settings</a></li>
-          <li><a href="sign-in.html">Sign out</a></li>
+          <li><a href="index.jsp">Home</a></li>
+          <li class="active"><a href="profile-settings.jsp">Settings</a></li>
+          <li><a href="sign-in.jsp">Sign out</a></li>
         </ul>
       </div>
     </div>
@@ -45,13 +46,13 @@
       <div class="row">
         <!-- sidebar start -->
         <div class="col-lg-2 col-md-2 col-sm-2">
-          <form action="profile-settings.html">
+          <form action="profile-settings.jsp">
             <input type="submit" value="Profile" class="large-button"/>
           </form>
-          <form action="notification-settings.html">
+          <form action="notification-settings.jsp">
             <input type="submit" value="Notifications" class="large-button active-button"/>
           </form>
-          <form action="change-password.html">
+          <form action="change-password.jsp">
             <input type="submit" value="Change Password" class="large-button"/>
           </form>
         </div>

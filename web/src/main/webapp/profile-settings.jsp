@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
@@ -28,14 +29,14 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="index.html">Online Activity Diary</a>
+        <a class="navbar-brand" href="index.jsp">Online Activity Diary</a>
       </div>
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="profile-settings.html">Settings</a></li>
-          <li><a href="sign-in.html">Sign out</a></li>
+          <li><a href="index.jsp">Home</a></li>
+          <li class="active"><a href="profile-settings.jsp">Settings</a></li>
+          <li><a href="sign-in.jsp">Sign out</a></li>
         </ul>
       </div>
     </div>
@@ -45,14 +46,14 @@
       <div class="row">
         <!-- sidebar start -->
         <div class="col-lg-2 col-md-2 col-sm-2">
-          <form action="profile-settings.html">
-            <input type="submit" value="Profile" class="large-button"/>
+          <form action="profile-settings.jsp">
+            <input type="submit" value="Profile" class="large-button active-button"/>
           </form>
-          <form action="notification-settings.html">
+          <form action="notification-settings.jsp">
             <input type="submit" value="Notifications" class="large-button"/>
           </form>
-          <form action="change-password.html">
-            <input type="submit" value="Change Password" class="large-button active-button"/>
+          <form action="change-password.jsp">
+            <input type="submit" value="Change Password" class="large-button"/>
           </form>
         </div>
         <!-- sidebar end -->
@@ -60,16 +61,16 @@
         <!-- start of fields -->
         <div class="col-lg-10 col-md-10 col-sm-10 settings-content">
           <div class="row">
-            <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Current Password</p>
-            <input type="password" name="current-password" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
+            <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Name</p>
+            <input type="text" name="name" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
           </div>
           <div class="row">
-            <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">New Password</p>
-            <input type="password" name="current-password" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
+            <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Address</p>
+            <input type="text" name="address" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
           </div>
           <div class="row">
-            <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Confirm New Password</p>
-            <input type="password" name="current-password" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
+            <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">E-Mail</p>
+            <input type="text" name="e-mail" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
           </div>
 
           <!-- start of buttons -->

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
@@ -21,7 +22,7 @@
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <!-- navbar start -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="sign-in.html">Online Activity Diary</a>
+        <a class="navbar-brand" href="sign-in.jsp">Online Activity Diary</a>
       </div>
     </div>
     <!-- navbar end -->
