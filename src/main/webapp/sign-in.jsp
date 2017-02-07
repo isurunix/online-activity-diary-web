@@ -1,4 +1,8 @@
+<%@ page import="org.glassfish.jersey.client.JerseyClient" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  if(request.getSession().getAttribute("authKey")!=null) request.getRequestDispatcher("index.jsp").forward(request,response);
+%>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
@@ -12,10 +16,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/sticky-footer-navbar.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/sticky-footer-navbar.css">
   </head>
 
   <body>
@@ -29,7 +33,7 @@
 
     <!-- start content -->
     <div class="container field-container">
-      <div class="main-area col-lg-6 col-md-6 col-sm-6 pull-right">
+      <form class="main-area col-lg-6 col-md-6 col-sm-6 pull-right" action="login" method="post">
         <div class="row">
           <p class="text-center area-title">Sign in</p>
         </div>
@@ -42,7 +46,7 @@
           <input type="password" name="password" class="sign-in-input col-lg-10 col-md-8 col-sm-8 col-xs-8">
         </div>
         <button class="pull-right bottom-button sign-in-button">Sign in</button>
-      </div>
+      </form>
     </div>
     <!-- end content -->
 
@@ -51,7 +55,7 @@
       <!--  -->
     </div>
     <!-- end of buttons -->
-    
+
     <!-- start of footer -->
     <footer class="footer">
       <div class="container footer-container">

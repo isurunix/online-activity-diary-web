@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  if(request.getSession().getAttribute("authKey")==null) request.getRequestDispatcher("sign-in.jsp").forward(request,response);
+%>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
@@ -12,10 +15,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/sticky-footer-navbar.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/sticky-footer-navbar.css">
   </head>
 
   <body>
