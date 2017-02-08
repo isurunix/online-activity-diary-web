@@ -222,3 +222,14 @@ a:hover{
 .settings-body{
   margin-top: 20px;
 }
+
+/* Added datepicker styling - isuru*/
+.datepicker{
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.fa-calendar {
+  font-size: larger;
+}

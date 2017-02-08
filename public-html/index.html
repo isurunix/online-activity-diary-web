@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/sticky-footer-navbar.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   </head>
 
   <body>
@@ -82,30 +83,16 @@
         <div class="col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-5 col-xs-12">
           <p class="first-title col-lg-2 col-md-2 col-sm-2 col-xs-2">From</p>
           <div class="dropdown col-lg-10 col-md-10 col-sm-10 col-xs-10">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-              2017-01-01
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">ECX4262</a></li>
-              <li><a href="#">ECX5245</a></li>
-              <li><a href="#">ECX5247</a></li>
-            </ul>
+            <input type="text" class="datepicker col-lg-10 col-md-10 col-sm-10 col-xs-10" id="start-date" placeholder="From">
+            <i class="fa fa-calendar col-lg-2 col-md-2 col-sm-2 col-xs-2"></i>
           </div>
         </div>
 
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
           <p class="first-title col-lg-2 col-md-2 col-sm-2 col-xs-2">To</p>
           <div class="dropdown col-lg-10 col-md-10 col-sm-10 col-xs-10">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-              2017-02-01
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Day Schools</a></li>
-              <li><a href="#">TMA Due Dates</a></li>
-              <li><a href="#">CAT1</a></li>
-            </ul>
+            <input type="text" class="datepicker col-lg-10 col-md-10 col-sm-10 col-xs-10" id="end-date" placeholder="To">
+            <i class="fa fa-calendar col-lg-2 col-md-2 col-sm-2 col-xs-2"></i>
           </div>
         </div>
       </div>
@@ -173,6 +160,8 @@
     <!-- end of footer -->
 
     <script src="js/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/custom.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
