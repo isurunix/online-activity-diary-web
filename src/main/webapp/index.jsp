@@ -122,8 +122,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <!--<p class="first-title col-lg-2 col-md-2 col-sm-2 col-xs-2">From</p>-->
             <div class="dropdown col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <input type="text" class="datepicker col-lg-10 col-md-10 col-sm-10 col-xs-10" id="start-date"
-                       placeholder="From">
+                <input type="text" class="datepicker col-lg-10 col-md-10 col-sm-10 col-xs-10" id="start-date" placeholder="From" onselect="searchDateRange()">
                 <i class="fa fa-calendar col-lg-2 col-md-2 col-sm-2 col-xs-2"></i>
             </div>
         </div>
