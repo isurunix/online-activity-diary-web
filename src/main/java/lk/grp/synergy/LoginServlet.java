@@ -60,6 +60,7 @@ public class LoginServlet extends HttpServlet {
                 System.out.println(readEntity.toString());
                 if(readEntity.has("authKey")) {
                     req.getSession().setAttribute("authKey",readEntity.get("authKey").getAsString());
+                    req.getSession().setAttribute("studentId",username);
                     req.getRequestDispatcher("/index.jsp").forward(req,resp);
                 }else{
                     req.getRequestDispatcher("/sign-in.jsp").forward(req,resp);
