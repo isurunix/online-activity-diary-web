@@ -5,6 +5,7 @@
 <%@ page import="org.apache.logging.log4j.Logger" %>
 <%@ page import="org.apache.logging.log4j.LogManager" %>
 <%@ page import="com.google.gson.*" %>
+<%@ page import="javax.ws.rs.core.Context" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%!
     private Client client;
@@ -13,6 +14,8 @@
     Logger logger = LogManager.getLogger(this);
 %>
 <%
+    String baseURL = request.getServletContext().getInitParameter("rest-base-url");
+    System.out.println(baseURL);
     if (request.getSession().getAttribute("authKey") == null)
         request.getRequestDispatcher("sign-in.jsp").forward(request, response);
     int studentId = Integer.parseInt((String) request.getSession().getAttribute("studentId"));
@@ -83,7 +86,7 @@
             <select class="selectpicker show-tick ol-lg-12 col-md-12 col-sm-12 col-xs-12" title="Course Code" id="courseSelector" onchange="searchCourse()">
                 <option value="">All</option>
                 <%
-                    WebTarget target = client.target("http://localhost:8080/oad/oad-api/student/" + studentId + "/course");
+                    WebTarget target = client.target(baseURL+ "student/" +studentId + "/course");
                     String res = target.request(MediaType.APPLICATION_JSON)
                             .accept(MediaType.APPLICATION_JSON)
                             .get(String.class);
@@ -155,7 +158,7 @@
         <tbody>
 
             <%
-                target = client.target("http://localhost:8080/oad/oad-api/student/" + studentId + "/activities");
+                target = client.target(baseURL + "student/" + studentId + "/activities");
                 res = target.request(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
                         .get(String.class);
