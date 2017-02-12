@@ -44,6 +44,13 @@ public class LoginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String pwd = req.getParameter("password");
 
+        String localAddr = req.getLocalName();
+        int localPort = req.getLocalPort();
+        if(localPort!=80){
+            localAddr+=(":"+localPort);
+        }
+        String url = "http://"+localAddr+"/oad-web/";
+
         JsonObject payload = new JsonObject();
         payload.addProperty("userId",username);
         payload.addProperty("password",pwd);
@@ -61,15 +68,27 @@ public class LoginServlet extends HttpServlet {
                 if(readEntity.has("authKey")) {
                     req.getSession().setAttribute("authKey",readEntity.get("authKey").getAsString());
                     req.getSession().setAttribute("studentId",username);
-                    req.getRequestDispatcher("/index.jsp").forward(req,resp);
+                    resp.sendRedirect(url+"home");
                 }else{
-                    req.getRequestDispatcher("/sign-in.jsp").forward(req,resp);
+                    resp.sendRedirect(url+"signin");
                 }
             }else{
-                req.getRequestDispatcher("/sign-in.jsp").forward(req,resp);
+                resp.sendRedirect(url+"signin");
             }
         }else{
-            req.getRequestDispatcher("/sign-in.jsp").forward(req,resp);
+            resp.sendRedirect(url+"signin");
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getSession().invalidate();
+        String localAddr = req.getLocalName();
+        int localPort = req.getLocalPort();
+        if(localPort!=80){
+            localAddr+=(":"+localPort);
+        }
+        String url = "http://"+localAddr+"/oad-web/";
+        resp.sendRedirect(url+"signin");
     }
 }
