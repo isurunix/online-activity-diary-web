@@ -1,7 +1,7 @@
 <%@ page import="org.glassfish.jersey.client.JerseyClient" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-  if(request.getSession().getAttribute("authKey")!=null) request.getRequestDispatcher("index.jsp").forward(request,response);
+  if(request.getSession().getAttribute("authKey")!=null) request.getRequestDispatcher("home").forward(request,response);
 %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->

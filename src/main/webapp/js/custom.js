@@ -61,3 +61,5 @@ function searchActivity() {
 function startDateFilter() {
     var startDate = $("#start-date").val();
 }
+
+

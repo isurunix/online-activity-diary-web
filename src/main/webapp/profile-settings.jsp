@@ -1,6 +1,21 @@
+<%@ page import="javax.ws.rs.client.Client" %>
+<%@ page import="org.apache.logging.log4j.Logger" %>
+<%@ page import="org.apache.logging.log4j.LogManager" %>
+<%@ page import="javax.ws.rs.client.ClientBuilder" %>
+<%@ page import="javax.ws.rs.client.WebTarget" %>
+<%@ page import="javax.ws.rs.core.MediaType" %>
+<%@ page import="com.google.gson.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%!
+  private Client client;
+  private JsonParser jsonParser = new JsonParser();
+  private Gson gson = new GsonBuilder().setPrettyPrinting().create();
+  Logger logger = LogManager.getLogger(this);
+%>
 <%
-  if(request.getSession().getAttribute("authKey")==null) request.getRequestDispatcher("sign-in.jsp").forward(request,response);
+  String baseURL = request.getServletContext().getInitParameter("rest-base-url");
+  int studentId = Integer.parseInt((String) request.getSession().getAttribute("studentId"));
+  client = ClientBuilder.newClient();
 %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
@@ -15,10 +30,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/sticky-footer-navbar.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/sticky-footer-navbar.css">
   </head>
 
   <body>
@@ -37,9 +52,9 @@
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="index.jsp">Home</a></li>
-          <li class="active"><a href="profile-settings.jsp">Settings</a></li>
-          <li><a href="sign-in.jsp">Sign out</a></li>
+          <li><a href="../home">Home</a></li>
+          <li class="active"><a href="profile">Settings</a></li>
+          <li><a href="../login">Sign out</a></li>
         </ul>
       </div>
     </div>
@@ -49,37 +64,46 @@
       <div class="row">
         <!-- sidebar start -->
         <div class="col-lg-2 col-md-2 col-sm-2">
-          <form action="profile-settings.jsp">
+          <form action="profile">
             <input type="submit" value="Profile" class="large-button active-button"/>
           </form>
-          <form action="notification-settings.jsp">
+          <form action="notification">
             <input type="submit" value="Notifications" class="large-button"/>
           </form>
-          <form action="change-password.jsp">
+          <form action="security">
             <input type="submit" value="Change Password" class="large-button"/>
           </form>
         </div>
         <!-- sidebar end -->
 
         <!-- start of fields -->
+        <%
+          WebTarget target = client.target(baseURL+ "student/" +studentId);
+          String res = target.request(MediaType.APPLICATION_JSON)
+                  .accept(MediaType.APPLICATION_JSON)
+                  .get(String.class);
+          JsonObject resObject = jsonParser.parse(res).getAsJsonObject();
+          String sName = resObject.get("name").getAsString();
+          String sMail = resObject.get("email").getAsString();
+//          String sAddress = resObject.get("address").getAsString();
+        %>
         <div class="col-lg-10 col-md-10 col-sm-10 settings-content">
           <div class="row">
             <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Name</p>
-            <input type="text" name="name" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
+            <input id="idField" type="text" name="name" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" value="<%=studentId%>">
           </div>
           <div class="row">
-            <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Address</p>
-            <input type="text" name="address" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
+            <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Name</p>
+            <input id="nameField" type="text" name="name" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" value="<%=sName%>">
           </div>
           <div class="row">
             <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">E-Mail</p>
-            <input type="text" name="e-mail" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
+            <input id="mailField" type="text" name="e-mail" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" value="<%=sMail%>">
           </div>
 
           <!-- start of buttons -->
           <div class="container buttons-container settings-buttons-container">
-            <button class="pull-right bottom-button">Update</button>
-            <button class="pull-right bottom-button">Cancel</button>
+            <button class="pull-right bottom-button" onclick="updateStudentInfo()">Update</button>
           </div>
           <!-- end of buttons -->
         </div>
@@ -102,7 +126,30 @@
     </footer>
     <!-- end of footer -->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+      function updateStudentInfo() {
+        var sId = $("#idField").val();
+        var sName = $("#nameField").val();
+        var sMail = $("#mailField").val();
+
+        $.ajax({
+          type: "PUT",
+          url: "http://localhost:8080/oad/oad-api/student/"+sId,
+          data: JSON.stringify({'studentId':sId,'name':sName,'email':sMail}),
+          contentType: 'application/json',
+        }).done(function (data) {
+          var resCode = data.responseCode;
+          if(resCode==200){
+            alert("Successfully Updated");
+            location.reload();
+          }else{
+            console.log(data);
+          }
+
+        });
+      }
+    </script>
   </body>
 </html>

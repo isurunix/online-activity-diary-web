@@ -5,7 +5,6 @@
 <%@ page import="org.apache.logging.log4j.Logger" %>
 <%@ page import="org.apache.logging.log4j.LogManager" %>
 <%@ page import="com.google.gson.*" %>
-<%@ page import="javax.ws.rs.core.Context" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%!
     private Client client;
@@ -16,8 +15,8 @@
 <%
     String baseURL = request.getServletContext().getInitParameter("rest-base-url");
     System.out.println(baseURL);
-    if (request.getSession().getAttribute("authKey") == null)
-        request.getRequestDispatcher("sign-in.jsp").forward(request, response);
+//    if (request.getSession().getAttribute("authKey") == null)
+//        request.getRequestDispatcher("signin").forward(request, response);
     int studentId = Integer.parseInt((String) request.getSession().getAttribute("studentId"));
     client = ClientBuilder.newClient();
 %>
@@ -70,9 +69,9 @@
 
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="profile-settings.html">Settings</a></li>
-            <li><a href="sign-in.html">Sign out</a></li>
+            <li class="active"><a href="home">Home</a></li>
+            <li><a href="settings/profile">Settings</a></li>
+            <li><a href="signin">Sign out</a></li>
         </ul>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-  if(request.getSession().getAttribute("authKey")==null) request.getRequestDispatcher("sign-in.jsp").forward(request,response);
+//  if(request.getSession().getAttribute("authKey")==null) request.getRequestDispatcher("sign-in.jsp").forward(request,response);
 %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
@@ -15,10 +15,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/sticky-footer-navbar.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/sticky-footer-navbar.css">
   </head>
 
   <body>
@@ -37,9 +37,9 @@
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="index.jsp">Home</a></li>
-          <li class="active"><a href="profile-settings.jsp">Settings</a></li>
-          <li><a href="sign-in.jsp">Sign out</a></li>
+          <li><a href="../home">Home</a></li>
+          <li class="active"><a href="profile">Settings</a></li>
+          <li><a href="../login">Sign out</a></li>
         </ul>
       </div>
     </div>
@@ -49,13 +49,13 @@
       <div class="row">
         <!-- sidebar start -->
         <div class="col-lg-2 col-md-2 col-sm-2">
-          <form action="profile-settings.jsp">
+          <form action="profile">
             <input type="submit" value="Profile" class="large-button"/>
           </form>
-          <form action="notification-settings.jsp">
+          <form action="notification">
             <input type="submit" value="Notifications" class="large-button active-button"/>
           </form>
-          <form action="change-password.jsp">
+          <form action="security">
             <input type="submit" value="Change Password" class="large-button"/>
           </form>
         </div>
@@ -114,7 +114,7 @@
     </footer>
     <!-- end of footer -->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>
