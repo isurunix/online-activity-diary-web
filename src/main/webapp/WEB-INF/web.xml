@@ -5,7 +5,67 @@
          version="3.1">
 
   <display-name>OUSL Online Activity Diary Web</display-name>
+
+  <servlet>
+    <servlet-name>index</servlet-name>
+    <jsp-file>/index.jsp</jsp-file>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>index</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
   
+  <servlet>
+    <servlet-name>signin</servlet-name>
+    <jsp-file>/sign-in.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>signin</servlet-name>
+    <url-pattern>/signin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>profile</servlet-name>
+    <jsp-file>/profile-settings.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>profile</servlet-name>
+    <url-pattern>/settings/profile</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>NotificationSettings</servlet-name>
+    <jsp-file>/notification-settings.jsp</jsp-file>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>NotificationSettings</servlet-name>
+    <url-pattern>/settings/notification</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SecuritySettings</servlet-name>
+    <jsp-file>/change-password.jsp</jsp-file>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>SecuritySettings</servlet-name>
+    <url-pattern>/settings/security</url-pattern>
+  </servlet-mapping>
+
+  <filter>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class>lk.grp.synergy.AuthFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
   <context-param>
     <param-name>log4jConfiguration</param-name>
     <param-value>resources/log4j2.properties</param-value>
