@@ -62,30 +62,39 @@
         <!-- sidebar end -->
 
         <!-- start of fields -->
-        <div class="col-lg-10 col-md-10 col-sm-10 settings-content">
+        <div class="col-lg-9 col-md-10 col-sm-10 settings-content">
+          <%--<div class="row">--%>
+            <%--<p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Notifications</p>--%>
+            <%--<!-- <input type="password" name="notification-status" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8"> -->--%>
+
+            <%--<div class="dropdown col-lg-9 col-md-8 col-sm-8 col-xs-8">--%>
+            <%--<button class="btn btn-primary dropdown-toggle change-pwd-dropdown" type="button" data-toggle="dropdown">--%>
+              <%--On--%>
+              <%--<span class="caret"></span>--%>
+            <%--</button>--%>
+            <%--<ul class="dropdown-menu">--%>
+              <%--<li><a href="#">On</a></li>--%>
+              <%--<li><a href="#">Off</a></li>--%>
+            <%--</ul>--%>
+          <%--</div>--%>
+
+          <%--</div>--%>
           <div class="row">
             <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Notifications</p>
-            <!-- <input type="password" name="notification-status" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8"> -->
-
-            <div class="dropdown col-lg-9 col-md-8 col-sm-8 col-xs-8">
-            <button class="btn btn-primary dropdown-toggle change-pwd-dropdown" type="button" data-toggle="dropdown">
-              On
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">On</a></li>
-              <li><a href="#">Off</a></li>
-            </ul>
-          </div>
-
+            <%--<input type="text" name="frequency" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">--%>
+            <select class="selectpicker show-tick change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" title="Notifications" id="notifSelector">
+              <option value="">All</option>
+              <option value="">Changes Only</option>
+              <option value="">New Additions Only</option>
+            </select>
           </div>
           <div class="row">
             <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Frequency</p>
-            <input type="text" name="frequency" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
-          </div>
-          <div class="row">
-            <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">E-Mail</p>
-            <input type="text" name="e-mail" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
+            <select class="selectpicker show-tick change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" title="Notification Frequency" id="freqSelector">
+              <option value="1">1 Day before</option>
+              <option value="">1 Day before and 1 Week before</option>
+              <option value="">1 Week before</option>
+            </select>
           </div>
 
           <!-- start of buttons -->

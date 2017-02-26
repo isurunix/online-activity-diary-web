@@ -39,11 +39,11 @@
         </div>
         <div class="row">
           <p class="col-lg-2 col-md-4 col-sm-4 col-xs-4">Username</p>
-          <input type="text" name="username" class="sign-in-input col-lg-10 col-md-8 col-sm-8 col-xs-8">
+          <input type="text" name="username" class="sign-in-input col-lg-10 col-md-8 col-sm-8 col-xs-8" placeholder="Registration Number" required pattern="^\d{8,12}" title="Enter your registration number (8-12 digits)">
         </div>
         <div class="row">
           <p class="col-lg-2 col-md-4 col-sm-4 col-xs-4">Password</p>
-          <input type="password" name="password" class="sign-in-input col-lg-10 col-md-8 col-sm-8 col-xs-8">
+          <input type="password" name="password" placeholder="Password" required class="sign-in-input col-lg-10 col-md-8 col-sm-8 col-xs-8">
         </div>
         <button class="pull-right bottom-button sign-in-button">Sign in</button>
       </form>

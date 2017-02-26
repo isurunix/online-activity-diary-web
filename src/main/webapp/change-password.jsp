@@ -66,22 +66,22 @@
         <!-- sidebar end -->
 
         <!-- start of fields -->
-        <div class="col-lg-10 col-md-10 col-sm-10 settings-content">
+        <form class="col-lg-9 col-md-10 col-sm-10 settings-content">
             <div class="row hidden">
                 <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Current Password</p>
-                <input id="studentId" type="password" name="current-password" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" value="<%=studentId%>">
+                <input id="studentId" type="password" name="student-id" required class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" value="<%=studentId%>">
             </div>
           <div class="row">
             <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Current Password</p>
-            <input id="currentPassword" type="password" name="current-password" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
+            <input id="currentPassword" type="password" name="current-password" required class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
           </div>
           <div class="row">
             <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">New Password</p>
-            <input id="newPassword" type="password" name="current-password" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
+            <input id="newPassword" type="password" required name="new-password" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
           </div>
           <div class="row">
             <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Confirm New Password</p>
-            <input id="newPasswordConfirm" type="password" name="current-password" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
+            <input id="newPasswordConfirm" required type="password" name="confirm-password" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8">
           </div>
           <div class="row" id="notifDiv" style="padding: 10px">
 
@@ -93,7 +93,7 @@
             <button class="pull-right bottom-button">Cancel</button>
           </div>
           <!-- end of buttons -->
-        </div>
+        </form>
         <!-- end of fields -->
       </div>
     </div>

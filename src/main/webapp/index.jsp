@@ -82,6 +82,7 @@
     <!-- selectors row 1 start -->
     <div class="row select-row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <p class="first-title col-lg-4 col-md-4 col-sm-4">Course Code</p>
             <select class="selectpicker show-tick ol-lg-12 col-md-12 col-sm-12 col-xs-12" title="Course Code" id="courseSelector" onchange="searchCourse()">
                 <option value="">All</option>
                 <%
@@ -106,6 +107,7 @@
         <!--<p class="first-title col-lg-2 col-md-2 col-sm-2 col-xs-2">Type</p>-->
         <%--<div class="form-group ">--%>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <p class="first-title col-lg-4 col-md-4 col-sm-4">Activity Type</p>
             <select class="selectpicker show-tick col-lg-12 col-md-12 col-sm-12 col-xs-12" title="Activity" id="activitySelector" onchange="searchActivity()">
                 <option value="">All</option>
                 <option value="Day School">Day School</option>
@@ -122,19 +124,19 @@
     <!-- selectors row 2 start -->
     <div class="row select-row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <!--<p class="first-title col-lg-2 col-md-2 col-sm-2 col-xs-2">From</p>-->
+            <p class="first-title col-lg-2 col-md-2 col-sm-2 col-xs-2">From</p>
             <div class="dropdown col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <input type="text" class="datepicker col-lg-10 col-md-10 col-sm-10 col-xs-10" id="start-date" placeholder="From" onselect="searchDateRange()">
-                <i class="fa fa-calendar col-lg-2 col-md-2 col-sm-2 col-xs-2"></i>
+                <input type="text" class="datepicker col-lg-12 col-md-12 col-sm-12 col-xs-12" id="start-date" placeholder="From" onselect="searchDateRange()">
+                <%--<i class="fa fa-calendar col-lg-1 col-md-1 col-sm-1 col-xs-1 pull-right"></i>--%>
             </div>
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <!--<p class="first-title col-lg-2 col-md-2 col-sm-2 col-xs-2">To</p>-->
+            <p class="first-title col-lg-2 col-md-2 col-sm-2 col-xs-2">To</p>
             <div class="dropdown col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <input type="text" class="datepicker col-lg-10 col-md-10 col-sm-10 col-xs-10" id="end-date"
+                <input type="text" class="datepicker col-lg-12 col-md-12 col-sm-12 col-xs-12" id="end-date"
                        placeholder="To">
-                <i class="fa fa-calendar col-lg-2 col-md-2 col-sm-2 col-xs-2"></i>
+                <%--<i class="fa fa-calendar col-lg- col-md-1 col-sm-1 col-xs-1 pull-right"></i>--%>
             </div>
         </div>
     </div>
@@ -143,8 +145,8 @@
 <!-- end of selector section -->
 
 <!-- start of table -->
-<div class="container">
-    <table id="activityTable" width="100%" class="table table-striped table-bordered table-responsive">
+<div class="container selector-container ">
+    <table id="activityTable" width="80%" class="table table-striped table-bordered table-responsive">
         <thead>
         <tr>
             <th>Course</th>
@@ -167,13 +169,14 @@
                     String name = jsonElement.getAsJsonObject().get("name").getAsString();
                     String date = jsonElement.getAsJsonObject().get("date").getAsString();
                     String startTime = jsonElement.getAsJsonObject().get("startTime").getAsString();
+                    String endTime = jsonElement.getAsJsonObject().get("endTime").getAsString();
                     String venue = jsonElement.getAsJsonObject().get("venue").getAsString();
             %>
             <tr>
                 <td><%=courseCode%></td>
                 <td><%=name%></td>
                 <td><%=date%></td>
-                <td><%=startTime%></td>
+                <td><%=startTime%>-<%=endTime%></td>
                 <td><%=venue%></td>
             </tr>
             <%
@@ -183,10 +186,10 @@
     </table>
 
     <!-- start of buttons -->
-    <div class="container buttons-container">
-        <button class="pull-right bottom-button">Add New</button>
-        <button class="pull-right bottom-button">Edit</button>
-    </div>
+    <%--<div class="container buttons-container">--%>
+        <%--<button class="pull-right bottom-button">Add New</button>--%>
+        <%--<button class="pull-right bottom-button">Edit</button>--%>
+    <%--</div>--%>
     <!-- end of buttons -->
 
 </div>
@@ -210,11 +213,11 @@
 <!-- end of footer -->
 
 <!--Plugin JS-->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
 <script src="js/datatables.min.js"></script>
 <script src="js/datatables.bootstrap3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
 
 <!--Bootstrap JS-->
 <script src="js/bootstrap.min.js"></script>

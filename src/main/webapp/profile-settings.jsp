@@ -87,18 +87,19 @@
           String sMail = resObject.get("email").getAsString();
 //          String sAddress = resObject.get("address").getAsString();
         %>
-        <div class="col-lg-10 col-md-10 col-sm-10 settings-content">
+        <form class="col-lg-9 col-md-10 col-sm-10 settings-content" onsubmit="updateStudentInfo()">
+
           <div class="row">
-            <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Name</p>
-            <input id="idField" type="text" name="name" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" value="<%=studentId%>">
+            <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Registration Number</p>
+            <input id="idField" disabled type="text" name="name" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" value="<%=studentId%>">
           </div>
           <div class="row">
             <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Name</p>
-            <input id="nameField" type="text" name="name" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" value="<%=sName%>">
+            <input id="nameField" required type="text" name="name" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" value="<%=sName%>">
           </div>
           <div class="row">
             <p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">E-Mail</p>
-            <input id="mailField" type="text" name="e-mail" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" value="<%=sMail%>">
+            <input id="mailField" required type="email" name="e-mail" class="change-pwd-input col-lg-9 col-md-8 col-sm-8 col-xs-8" value="<%=sMail%>">
           </div>
 
           <!-- start of buttons -->
@@ -106,10 +107,30 @@
             <button class="pull-right bottom-button" onclick="updateStudentInfo()">Update</button>
           </div>
           <!-- end of buttons -->
-        </div>
+        </form>
         <!-- end of fields -->
+
+        <%-- courses section --%>
+        <%--<div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-lg-10 col-md-10 col-sm-10 settings-content" id="my-courses">--%>
+          <%--<div class="row">--%>
+            <%--<div class="col-xs-7">--%>
+              <%--ECX5235--%>
+            <%--</div>--%>
+            <%--<div class="col-xs-offset-1 col-xs-4 course-btn-container">--%>
+              <%--<button class="btn btn-default pull-right bottom-button">Remove</button>--%>
+            <%--</div>--%>
+          <%--</div>--%>
+        <%--</div>--%>
+        <%-- end of courses section --%>
+
       </div>
     </div>
+
+    <%--<div class="settings-body container">--%>
+      <%--<div class="col-sm-2"></div>--%>
+      <%----%>
+    <%--</div>--%>
+
     
     <!-- start of footer -->
     <footer class="footer">
